@@ -1,0 +1,50 @@
+:root {
+  /* Couleurs - palette "One Dark Pro" */
+  --color-bg: #282C33;
+  --color-surface: #2C313A;
+  --color-surface-alt: #323842;
+  --color-border: #3B4049;
+  --color-text: #FFF;
+  --color-text-muted: #ABB2BF;
+  --color-primary: #C778DD;
+  --color-primary-dark: #A85FC0;
+  --color-gray: #ABB2BF;
+  --icon-size-brand: 16px;
+  --icon-size-social: 18px;
+  --icon-size-inline: 18px;
+  --icon-size-social: 18px;
+  --icon-size-inline: 18px;
+
+  /* Typo */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+  --fs-h1: clamp(2.25rem, 5vw, 4rem);
+  --fs-h2: clamp(1.75rem, 3.5vw, 2.5rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --lh-body: 1.6;
+  --lh-heading: 1.15;
+
+  /* Espacements (echelle de 4/8) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-8: 2rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Divers */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+  --container: 820px;
+  --header-height: 42px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s var(--ease);
+  --transition-base: 0.35s var(--ease);
+  --transition-slow: 0.6s var(--ease);
+}
