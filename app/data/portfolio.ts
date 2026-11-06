@@ -75,44 +75,44 @@ export const portfolio = {
   ],
   projects: [
     {
-      title: "Noah Voyages",
+      title: "Mintizy",
       description:
-        "Plateforme de tourisme avec interface web, API de réservation et de paiement, et chat en temps réel.",
-      technologies: ["Laravel", "Vue.js"],
-      previewLabel: "Noah Voyages",
-      previewStyle: "noah",
+        "Solution de gestion de la maintenance qui réunit techniciens, responsables et clients pour réduire les arrêts et automatiser les processus.",
+      technologies: ["Plateforme web", "Maintenance", "Automatisation"],
+      image: "/img/works/mintizy.png",
+      href: "https://mintizy.com",
     },
     {
       title: "Oxentt Business",
       description:
-        "Réseau social B2B intégrant l’authentification, un forum, la messagerie instantanée et le paiement.",
-      technologies: ["Laravel", "Vue.js", "WebSocket"],
-      previewLabel: "Oxentt Business",
-      previewStyle: "oxentt",
+        "Réseau social professionnel B2B pour échanger autour de sujets métier, d’intérêts professionnels et de passions.",
+      technologies: ["Réseau social B2B", "Forum", "Messagerie"],
+      image: "/img/works/oxentt.png",
+      href: "https://oxentt-business.com",
     },
     {
-      title: "Football Database",
+      title: "Stay to Stay",
       description:
-        "Plateforme de classement mondial des clubs, avec refonte des API joueurs et quiz interactif.",
-      technologies: ["PHP", "Python"],
-      previewLabel: "Football Database",
-      previewStyle: "football",
+        "Plateforme de mise en relation pour l’échange de propriétés, le prêt réciproque et le prêt simple de logements.",
+      technologies: ["Immobilier", "Échange de logements"],
+      image: "/img/works/stay-to-stay.png",
+      href: "https://stay2stayjp.com",
     },
     {
-      title: "BCOMBIO",
+      title: "Talenteum",
       description:
-        "Quiz Shopify de diagnostic de la peau, avec un moteur de scoring couvrant 28 profils.",
-      technologies: ["Shopify", "Liquid", "JavaScript"],
-      previewLabel: "BCOMBIO",
-      previewStyle: "bcombio",
+        "Plateforme de recrutement à distance qui met en relation les entreprises avec des talents prêts à travailler depuis l’Afrique.",
+      technologies: ["Recrutement", "Travail à distance", "Afrique"],
+      image: "/img/works/talenteuim.png",
+      href: "https://talenteum.com",
     },
     {
       title: "Wipicut",
       description:
         "Application desktop d’analyse vidéo sportive, utilisable hors ligne, avec synchronisation SQLite et serveur Node.js local.",
       technologies: ["Electron", "Laravel", "Vue.js", "SQLite"],
-      previewLabel: "Wipicut",
-      previewStyle: "wipicut",
+      image: "/img/works/wipicut.png",
+      href: "https://wipicut.com/en",
     },
   ],
 };

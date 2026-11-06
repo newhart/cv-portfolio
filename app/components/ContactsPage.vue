@@ -72,6 +72,7 @@ const { messages } = useLanguage();
   overflow: hidden;
   min-height: 330px;
   padding-block: 1.5rem 3rem;
+  background: var(--color-bg);
 }
 
 .contacts-page__inner {
@@ -100,46 +101,55 @@ const { messages } = useLanguage();
 
 .contacts-page__content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.9fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .contacts-page__intro {
-  max-width: 46ch;
+  max-width: 40ch;
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  line-height: 1.65;
+  font-size: clamp(0.76rem, 1.6vw, 1rem);
+  line-height: 1.7;
+  margin: 0;
 }
 
 .contacts-page__cards {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }
 
 .contact-card {
   display: grid;
-  gap: 0.4rem;
-  width: 137px;
-  min-width: 137px;
-  padding: 0.7rem;
-  border: 1px solid var(--color-text-muted);
+  align-content: start;
+  gap: 0.7rem;
+  width: min(100%, 220px);
+  min-width: 180px;
+  min-height: 160px;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border);
+  background: transparent;
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
 
 .contact-card h2 {
   font-family: inherit;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
+  color: var(--color-text);
 }
 
 .contact-card > a {
-  color: var(--color-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text);
   white-space: nowrap;
 }
 
@@ -180,28 +190,31 @@ const { messages } = useLanguage();
 }
 
 .contacts-page__social {
-  margin-top: 1.4rem;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .contacts-page__social h2 {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   font-family: var(--font-mono);
-  font-size: 1.35rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
 }
 
 .contacts-page__social ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .contacts-page__social a {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.55rem;
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
 }
 
 .contacts-page__social a:hover {

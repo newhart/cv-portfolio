@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>CV | Haritiana Randriamampionona</title>
+  <style>
+    :root {
+      --ink: #202630;
+      --paper: #f7f8fa;
+      --white: #fff;
+      --muted: #aeb7c4;
+      --line: #dce1e8;
+      --accent: #c778dd;
+      --accent-soft: #f5eafa;
+      --sidebar: #282c33;
+      --sidebar-panel: #323842;
+      --body: "Aptos", "Segoe UI", Arial, sans-serif;
+      --mono: "Cascadia Code", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #dfe3e9;
+      color: var(--ink);
+      font-family: var(--body);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      display: grid;
+      grid-template-columns: 58mm 1fr;
+      width: 210mm;
+      height: 297mm;
+      margin: 12mm auto;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 8px 36px #17202c24;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .page:last-child { page-break-after: auto; break-after: auto; }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 5mm;
+      min-width: 0;
+      padding: 10mm 7mm 8mm;
+      background: var(--sidebar);
+      color: var(--white);
+    }
+
+    .portrait {
+      display: block;
+      width: 34mm;
+      height: 41mm;
+      border: 1.2mm solid #ffffff20;
+      border-radius: 2mm;
+      object-fit: cover;
+      object-position: center 26%;
+    }
+
+    .side-name {
+      margin: 0;
+      color: var(--white);
+      font-size: 10.5pt;
+      line-height: 1.08;
+      font-weight: 750;
+      overflow-wrap: anywhere;
+    }
+
+    .side-role {
+      margin: 1.5mm 0 0;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 7.3pt;
+      line-height: 1.45;
+    }
+
+    .side-section { border-top: 0.3mm solid #ffffff25; padding-top: 3mm; }
+    .side-title {
+      margin: 0 0 2.3mm;
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 8pt;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+    .side-title::before { content: "#"; color: var(--accent); margin-right: 1.2mm; }
+
+    .contact-list, .side-list, .tag-list, .quality-list, .language-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list { display: grid; gap: 2mm; }
+    .contact-list li, .contact-list a {
+      color: #d1d7e0;
+      font-size: 7pt;
+      line-height: 1.35;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .contact-list strong { color: var(--white); font-weight: 600; }
+
+    .skill-block { margin-top: 2.2mm; }
+    .skill-block h3 {
+      margin: 0 0 1.1mm;
+      color: #e8ebf0;
+      font-size: 7pt;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .skill-block p {
+      margin: 0;
+      color: #b7c0cc;
+      font-size: 6.7pt;
+      line-height: 1.42;
+    }
+
+    .language-list { display: grid; gap: 1.5mm; }
+    .language-list li { display: flex; justify-content: space-between; gap: 2mm; font-size: 7pt; color: #d1d7e0; }
+    .stars { color: var(--accent); letter-spacing: 0.3mm; white-space: nowrap; }
+    .quality-list { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+    .quality-list li {
+      padding: 1mm 1.5mm;
+      border: 0.25mm solid #ffffff35;
+      border-radius: 1mm;
+      color: #d1d7e0;
+      font-size: 6.3pt;
+    }
+
+    .main {
+      min-width: 0;
+      padding: 12mm 12mm 10mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 2mm;
+      color: #737d8b;
+      font-family: var(--mono);
+      font-size: 7.3pt;
+      letter-spacing: 0.3mm;
+      text-transform: uppercase;
+    }
+
+    .page-heading {
+      margin: 0;
+      color: var(--ink);
+      font-size: 23pt;
+      line-height: 1.05;
+      font-weight: 750;
+    }
+
+    .page-heading span { color: #9c4db4; }
+    .heading-rule { height: 0.8mm; margin: 4mm 0 6mm; background: var(--accent); }
+
+    .section { margin-top: 5mm; }
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 2.2mm;
+      margin: 0 0 3mm;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 10pt;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .section-heading::before {
+      content: "";
+      width: 1.3mm;
+      height: 5mm;
+      flex: 0 0 1.3mm;
+      background: var(--accent);
+    }
+
+    .profile {
+      margin: 0;
+      color: #4b5563;
+      font-size: 9pt;
+      line-height: 1.53;
+    }
+
+    .experience { margin-top: 7mm; }
+    .job {
+      position: relative;
+      margin: 0 0 4.5mm;
+      padding: 0 0 0 4mm;
+      border-left: 0.45mm solid #d5c3de;
+    }
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -1.35mm;
+      top: 1mm;
+      width: 2.2mm;
+      height: 2.2mm;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+    .job-title { margin: 0; color: var(--ink); font-size: 9.2pt; line-height: 1.25; font-weight: 700; }
+    .job-company { color: #9c4db4; }
+    .job-period { flex: 0 0 auto; color: #727d8a; font-family: var(--mono); font-size: 6.8pt; }
+    .job ul { display: grid; gap: 1.1mm; margin: 2mm 0 0; padding-left: 4mm; }
+    .job li { padding-left: 0.6mm; color: #4b5563; font-size: 7.7pt; line-height: 1.4; }
+    .job li::marker { color: #a34dbd; }
+
+    .side-bottom { margin-top: auto; }
+    .side-note { margin: 0; color: #b7c0cc; font-size: 6.4pt; line-height: 1.4; }
+
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+    .project-card {
+      display: block;
+      min-height: 34mm;
+      padding: 3.2mm;
+      border: 0.3mm solid var(--line);
+      border-radius: 1.4mm;
+      background: var(--white);
+      color: inherit;
+      text-decoration: none;
+      break-inside: avoid;
+    }
+    .project-card:nth-child(5) { grid-column: 1 / -1; min-height: 29mm; }
+    .project-image {
+      display: block;
+      width: 100%;
+      height: 15mm;
+      margin-bottom: 2mm;
+      border-radius: 0.8mm;
+      object-fit: cover;
+    }
+    .project-card h3 { margin: 0 0 1.5mm; color: var(--ink); font-size: 9pt; line-height: 1.2; }
+    .project-card p { margin: 0; color: #566171; font-size: 7.5pt; line-height: 1.42; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 1.2mm; margin-top: 2mm; }
+    .tech-list span {
+      padding: 0.8mm 1.3mm;
+      border: 0.25mm solid #e6d3ec;
+      border-radius: 1mm;
+      color: #744184;
+      font-family: var(--mono);
+      font-size: 6pt;
+    }
+
+    .lower-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 6mm; }
+    .lower-grid .section { margin-top: 0; }
+    .clean-list { display: grid; gap: 2.2mm; margin: 0; padding-left: 4mm; }
+    .clean-list li { color: #4b5563; font-size: 7.4pt; line-height: 1.38; }
+    .clean-list li::marker { color: #a34dbd; }
+
+    .practice {
+      margin-top: 5mm;
+      padding: 3.5mm;
+      border-radius: 1.4mm;
+      background: #eef0f4;
+    }
+    .practice p { margin: 0; color: #4b5563; font-size: 7.6pt; line-height: 1.45; }
+
+    .page-number {
+      position: absolute;
+      right: 12mm;
+      bottom: 7mm;
+      color: #8992a0;
+      font-family: var(--mono);
+      font-size: 6.5pt;
+    }
+
+    .page-two .sidebar { gap: 6mm; }
+    .page-two .main { padding-top: 14mm; }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      html, body { width: 210mm; margin: 0; background: var(--paper); }
+      .page { margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
+      .page:last-child { page-break-after: auto; break-after: auto; }
+    }
+    @media screen {
+      body { padding: 8mm 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page page-one">
+    <aside class="sidebar">
+      <div>
+        <img class="portrait" src="portrait-000.jpg" alt="Portrait professionnel de Haritiana Randriamampionona">
+        <p class="eyebrow" style="margin-top:5mm;color:#c778dd">Développeur logiciel</p>
+        <h2 class="side-name">Haritiana<br>Randriamampionona</h2>
+        <p class="side-role">Développeur full-stack senior</p>
+      </div>
+
+      <section class="side-section">
+        <h2 class="side-title">Coordonnées</h2>
+        <ul class="contact-list">
+          <li><strong>Localisation</strong><br>Antananarivo, Madagascar</li>
+          <li><strong>Téléphone</strong><br>+261 32 69 206 94<br>+261 38 59 327 02</li>
+          <li><strong>E-mail</strong><br><a href="mailto:dev.haritianakely@gmail.com">dev.haritianakely@gmail.com</a></li>
+          <li><strong>GitHub</strong><br><a href="https://github.com/newhart">github.com/newhart</a></li>
+          <li><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/haritiana-randriamampionona-207790344/">linkedin.com/in/haritiana-randriamampionona-207790344</a></li>
+          <li><strong>Portfolio</strong><br><a href="https://haritiana-kely.vercel.app">haritiana-kely.vercel.app</a></li>
+        </ul>
+      </section>
+
+      <section class="side-section">
+        <h2 class="side-title">Expertises techniques</h2>
+        <div class="skill-block">
+          <h3>Langages</h3>
+          <p>JavaScript · PHP · Python</p>
+        </div>
+        <div class="skill-block">
+          <h3>Frameworks &amp; back-end</h3>
+          <p>Laravel · Symfony · Adonis.js · Django · Node.js</p>
+        </div>
+        <div class="skill-block">
+          <h3>Front-end</h3>
+          <p>Vue.js · Nuxt.js · React.js · Next.js · Angular · jQuery</p>
+        </div>
+        <div class="skill-block">
+          <h3>Mobile &amp; desktop</h3>
+          <p>React Native · Ionic · Electron · SQLite</p>
+        </div>
+        <div class="skill-block">
+          <h3>E-commerce &amp; CMS</h3>
+          <p>Shopify · Liquid · PrestaShop · WooCommerce · WordPress</p>
+        </div>
+        <div class="skill-block">
+          <h3>Données &amp; API</h3>
+          <p>MySQL · PostgreSQL · MongoDB · REST · GraphQL · WebSocket</p>
+        </div>
+        <div class="skill-block">
+          <h3>DevOps &amp; outils</h3>
+          <p>Linux · Docker · CI/CD · Git · ElasticSearch · PhpStorm · Android Studio · IA générative · prompts structurés</p>
+        </div>
+      </section>
+
+      <section class="side-section side-bottom">
+        <h2 class="side-title">Langues</h2>
+        <ul class="language-list">
+          <li><span>Français</span><span class="stars">★★★★☆</span></li>
+          <li><span>Malagasy</span><span class="stars">★★★★★</span></li>
+          <li><span>Anglais</span><span class="stars">★★☆☆☆</span></li>
+        </ul>
+      </section>
+    </aside>
+
+    <main class="main">
+      <p class="eyebrow">Curriculum vitæ · 2026</p>
+      <h1 class="page-heading">Développeur <span>full-stack senior</span></h1>
+      <div class="heading-rule"></div>
+
+      <section class="section" style="margin-top:0">
+        <h2 class="section-heading">Profil professionnel</h2>
+        <p class="profile">
+          Développeur full-stack senior avec plus de cinq ans d’expérience dans la conception et le développement d’applications web et mobiles. Spécialisé en Laravel, Vue.js, React et Node.js, je prends en charge les projets de la conception des API à la mise en production. Mon approche associe qualité technique, évolutivité et impact produit.
+        </p>
+      </section>
+
+      <section class="section experience">
+        <h2 class="section-heading">Expérience professionnelle</h2>
+
+        <article class="job">
+          <div class="job-head">
+            <h3 class="job-title">Développeur full-stack senior <span class="job-company">· BIGDEV</span></h3>
+            <span class="job-period">Oct. 2022 – aujourd’hui</span>
+          </div>
+          <ul>
+            <li>Conception et développement de plus de huit applications web et mobiles pour différents clients : Vue.js, PHP, Python, Node.js, React.js, Laravel et Symfony.</li>
+            <li>Développement d’applications multiplateformes avec React Native et mise en production ; développement et maintenance de plateformes WordPress.</li>
+            <li>Conception d’architectures évolutives et pilotage de plusieurs projets clients en parallèle.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3 class="job-title">Développeur full-stack <span class="job-company">· MKWEBLINKS</span></h3>
+            <span class="job-period">Fév. 2021 – sept. 2022</span>
+          </div>
+          <ul>
+            <li>Développement de fonctionnalités front-end et back-end pour plusieurs clients avec Laravel et Nuxt.js.</li>
+            <li>Réalisation d’applications mobiles hybrides avec Ionic et Angular.</li>
+            <li>Automatisation de la collecte de données par web scraping en Python, réduisant les tâches manuelles.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3 class="job-title">Développeur web <span class="job-company">· RANDEV TEAM</span></h3>
+            <span class="job-period">Nov. 2019 – mars 2020</span>
+          </div>
+          <ul>
+            <li>Développement de sites web sur mesure avec Laravel.</li>
+            <li>Personnalisation de WordPress et PrestaShop pour des clients e-commerce.</li>
+            <li>Développement front-end interactif avec jQuery et React.js.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Méthodes &amp; architecture</h2>
+        <p class="profile">Microservices · API REST · GraphQL · Agile Scrum · Architecture MCD/UML · Déploiement continu</p>
+      </section>
+      <span class="page-number">01 / 02</span>
+    </main>
+  </article>
+
+  <article class="page page-two">
+    <aside class="sidebar">
+      <div>
+        <p class="eyebrow" style="color:#c778dd">Haritiana Randriamampionona</p>
+        <h2 class="side-name">Projets,<br>formation &amp;<br>distinctions</h2>
+        <p class="side-role">Sélection de réalisations</p>
+      </div>
+
+      <section class="side-section">
+        <h2 class="side-title">Formation</h2>
+        <ul class="side-list">
+          <li class="side-note"><strong style="color:#fff">Licence en informatique</strong><br>CNTEMAD, Antananarivo · 2020</li>
+          <li class="side-note" style="margin-top:3mm"><strong style="color:#fff">Baccalauréat</strong><br>Antananarivo · 2016</li>
+        </ul>
+      </section>
+
+      <section class="side-section">
+        <h2 class="side-title">Distinctions</h2>
+        <ul class="side-list" style="display:grid;gap:2.5mm;padding-left:4mm;list-style:disc">
+          <li class="side-note">1re place au Hackathon interuniversitaire de Techzara, Antananarivo (2019).</li>
+          <li class="side-note">DEVFEST Antananarivo, organisé par GDG Madagascar (2019).</li>
+          <li class="side-note">CREATHON Antananarivo, compétition dédiée à l’accessibilité numérique (2019).</li>
+        </ul>
+      </section>
+
+      <section class="side-section">
+        <h2 class="side-title">Atouts</h2>
+        <ul class="quality-list">
+          <li>Méthodique</li><li>Flexible</li><li>Organisé</li><li>Inventif</li>
+          <li>Collaboratif</li><li>Coopératif</li><li>Passionné</li>
+        </ul>
+      </section>
+
+      <section class="side-section side-bottom">
+        <h2 class="side-title">Pratique complémentaire</h2>
+        <p class="side-note">Administration de serveurs Linux : Nextcloud, supervision, optimisation mémoire et stockage.</p>
+        <p class="side-note" style="margin-top:2mm">DevOps : Docker, CI/CD et déploiement continu.</p>
+        <p class="side-note" style="margin-top:2mm"><strong style="color:#fff">IA appliquée au développement</strong><br>Maîtrise des outils d’IA générative et rédaction de prompts structurés pour agents de codage afin d’accélérer les tâches de développement.</p>
+      </section>
+    </aside>
+
+    <main class="main">
+      <p class="eyebrow">Sélection · conception et réalisation</p>
+      <h1 class="page-heading">Projets <span>marquants</span></h1>
+      <div class="heading-rule"></div>
+
+      <section class="project-grid" aria-label="Projets réalisés">
+        <a class="project-card" href="https://mintizy.com" target="_blank" rel="noopener noreferrer">
+          <img class="project-image" src="../public/img/works/mintizy.png" alt="Capture du site Mintizy">
+          <h3>Mintizy</h3>
+          <p>Plateforme de gestion de la maintenance qui réunit techniciens, responsables et clients afin de réduire les arrêts et d’automatiser les processus métier.</p>
+          <div class="tech-list"><span>Maintenance</span><span>Gestion d’équipe</span><span>Automatisation</span></div>
+        </a>
+        <a class="project-card" href="https://oxentt-business.com" target="_blank" rel="noopener noreferrer">
+          <img class="project-image" src="../public/img/works/oxentt.png" alt="Capture du site Oxentt Business">
+          <h3>Oxentt Business</h3>
+          <p>Réseau social B2B avec authentification, forum, messagerie en temps réel et fonctionnalités de paiement.</p>
+          <div class="tech-list"><span>Laravel</span><span>Vue.js</span><span>WebSocket</span></div>
+        </a>
+        <a class="project-card" href="https://stay2stayjp.com" target="_blank" rel="noopener noreferrer">
+          <img class="project-image" src="../public/img/works/stay-to-stay.png" alt="Capture du site Stay to Stay">
+          <h3>Stay to Stay</h3>
+          <p>Plateforme de mise en relation pour l’échange de propriétés, le prêt réciproque et le prêt simple de logements.</p>
+          <div class="tech-list"><span>Immobilier</span><span>Échange de logements</span></div>
+        </a>
+        <a class="project-card" href="https://talenteum.com" target="_blank" rel="noopener noreferrer">
+          <img class="project-image" src="../public/img/works/talenteuim.png" alt="Capture du site Talenteum">
+          <h3>Talenteum</h3>
+          <p>Plateforme de recrutement à distance qui met en relation les entreprises avec des talents prêts à travailler depuis l’Afrique.</p>
+          <div class="tech-list"><span>Recrutement</span><span>Travail à distance</span></div>
+        </a>
+        <a class="project-card" href="https://wipicut.com/en" target="_blank" rel="noopener noreferrer">
+          <img class="project-image" src="../public/img/works/wipicut.png" alt="Capture du site Wipicut">
+          <h3>Wipicut</h3>
+          <p>Application desktop d’analyse vidéo sportive utilisable hors ligne, avec synchronisation SQLite et serveur Node.js local.</p>
+          <div class="tech-list"><span>Electron</span><span>Laravel</span><span>Vue.js</span><span>SQLite</span></div>
+        </a>
+      </section>
+
+      <div class="lower-grid">
+        <section class="section">
+          <h2 class="section-heading">Technologies clés</h2>
+          <ul class="clean-list">
+            <li>Laravel, Symfony, Adonis.js, Django</li>
+            <li>Vue.js, Nuxt.js, React.js, Next.js</li>
+            <li>React Native, Ionic, Electron</li>
+            <li>Shopify, PrestaShop, WooCommerce, WordPress</li>
+            <li>MySQL, PostgreSQL, MongoDB, SQLite</li>
+            <li>IA générative, prompts structurés et agents de codage</li>
+          </ul>
+        </section>
+        <section class="section">
+          <h2 class="section-heading">Outils &amp; environnements</h2>
+          <ul class="clean-list">
+            <li>Linux, Docker et CI/CD</li>
+            <li>PhpStorm, Visual Studio, Android Studio</li>
+            <li>Git, Notion et ClickUp</li>
+            <li>ElasticSearch, GraphQL et API REST</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="practice">
+        <h2 class="section-heading" style="margin-bottom:2mm">Approche professionnelle</h2>
+        <p>Conception d’architectures évolutives · Pilotage de projets clients en parallèle · Déploiement et exploitation d’infrastructures Linux · Collaboration Agile Scrum · Maîtrise des outils d’IA générative et prompts structurés pour agents de codage</p>
+      </div>
+
+      <span class="page-number">02 / 02</span>
+    </main>
+  </article>
+</body>
+</html>

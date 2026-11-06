@@ -9,7 +9,8 @@ type Project = {
   description: string;
   technologies: string[];
   actions: ProjectAction[];
-  image?: string;
+  image: string;
+  href: string;
   previewLabel?: string;
   previewStyle?: string;
 };
@@ -23,43 +24,21 @@ defineProps<{
 
 <template>
   <article class="portfolio-card" :class="{ 'portfolio-card--compact': compact }" v-reveal="index">
-    <div
-      v-if="project.image || project.previewLabel"
-      class="portfolio-card__preview"
-      :class="project.previewStyle ? `portfolio-card__preview--${project.previewStyle}` : undefined"
-    >
-      <NuxtImg
-        v-if="project.image"
-        class="portfolio-card__image"
-        :src="project.image"
-        :alt="`Aperçu du projet ${project.title}`"
-        width="480"
-        height="340"
-        format="webp"
-        loading="lazy"
-      />
-      <span v-else class="portfolio-card__preview-label">{{ project.previewLabel }}</span>
-    </div>
-
-    <p class="portfolio-card__technologies">{{ project.technologies.join("   ") }}</p>
-
-    <div class="portfolio-card__body">
-      <h3>{{ project.title }}</h3>
-      <p class="portfolio-card__description">{{ project.description }}</p>
-      <ul v-if="project.actions.length" class="portfolio-card__actions">
-        <li v-for="action in project.actions" :key="action.label">
-          <a
-            v-if="action.href"
-            :href="action.href"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ action.label }}
-          </a>
-          <span v-else>{{ action.label }}</span>
-        </li>
-      </ul>
-    </div>
+    <a class="portfolio-card__link" :href="project.href" target="_blank" rel="noopener noreferrer">
+      <div class="portfolio-card__preview">
+        <img
+          class="portfolio-card__image"
+          :src="project.image"
+          :alt="`Aperçu du projet ${project.title}`"
+          loading="lazy"
+        />
+      </div>
+      <p class="portfolio-card__technologies">{{ project.technologies.join("   ") }}</p>
+      <div class="portfolio-card__body">
+        <h3>{{ project.title }} <span aria-hidden="true">↗</span></h3>
+        <p class="portfolio-card__description">{{ project.description }}</p>
+      </div>
+    </a>
   </article>
 </template>
 
@@ -68,6 +47,17 @@ defineProps<{
   min-width: 0;
   border: 1px solid var(--color-border);
   background: color-mix(in srgb, var(--color-surface) 60%, var(--color-bg));
+}
+
+.portfolio-card__link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio-card:hover .portfolio-card__link {
+  color: inherit;
 }
 
 .portfolio-card__preview {
@@ -145,6 +135,10 @@ defineProps<{
   font-family: var(--font-mono);
   font-size: 0.42rem;
   line-height: 1.3;
+}
+
+.portfolio-card__body h3 span {
+  color: var(--color-primary);
 }
 
 .portfolio-card__description {

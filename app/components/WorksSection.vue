@@ -5,6 +5,8 @@ const projects = portfolio.projects.slice(0, 3).map((project) => ({
   title: project.title,
   description: project.description,
   tags: project.technologies,
+  image: project.image,
+  href: project.href,
 }));
 const { messages } = useLanguage();
 </script>

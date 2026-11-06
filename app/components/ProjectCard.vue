@@ -3,43 +3,61 @@ defineProps<{
   title: string;
   description: string;
   tags: string[];
-  href?: string;
+  href: string;
+  image: string;
   index: number;
 }>();
 </script>
 
 <template>
   <article class="project-card" v-reveal="index">
-    <div class="project-card__top">
-      <span class="project-card__index">{{ String(index + 1).padStart(2, "0") }}</span>
-      <a
-        v-if="href"
-        class="project-card__arrow"
-        :href="href"
-        target="_blank"
-        rel="noopener noreferrer"
-        :aria-label="`Voir le projet ${title}`"
-      >
-        ↗
-      </a>
-    </div>
-    <h3 class="project-card__title">{{ title }}</h3>
-    <p class="project-card__desc">{{ description }}</p>
-    <ul class="project-card__tags">
-      <li v-for="tag in tags" :key="tag">{{ tag }}</li>
-    </ul>
+    <a class="project-card__link" :href="href" target="_blank" rel="noopener noreferrer">
+      <img class="project-card__image" :src="image" :alt="`Aperçu de ${title}`" loading="lazy" />
+      <div class="project-card__content">
+        <div class="project-card__top">
+          <span class="project-card__index">{{ String(index + 1).padStart(2, "0") }}</span>
+          <span class="project-card__arrow" aria-hidden="true">↗</span>
+        </div>
+        <h3 class="project-card__title">{{ title }}</h3>
+        <p class="project-card__desc">{{ description }}</p>
+        <ul class="project-card__tags">
+          <li v-for="tag in tags" :key="tag">{{ tag }}</li>
+        </ul>
+      </div>
+    </a>
   </article>
 </template>
 
 <style scoped>
 .project-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
+  min-width: 0;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 2px;
   transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.project-card__link {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.55;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-card__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0.8rem;
 }
 
 .project-card:hover {
