@@ -8,7 +8,7 @@ const { messages } = useLanguage();
     <div class="container hero__inner">
       <div class="hero__content" v-reveal>
         <p class="section-eyebrow hero__eyebrow" :aria-label="messages.hero.eyebrow" v-reveal>
-          <TypingText :text="messages.hero.eyebrow" />
+          <TypingText :text="messages.hero.eyebrow" immediate />
         </p>
         <h1 class="hero__title">
           {{ messages.hero.lead }} {{ portfolio.displayName }}

@@ -91,9 +91,8 @@ textarea:focus-visible {
 
 .typing-text {
   display: inline-block;
-  width: 0;
-  overflow: hidden;
   border-right: 1px solid currentColor;
+  clip-path: inset(0 100% 0 0);
   white-space: nowrap;
   vertical-align: bottom;
 }
@@ -104,8 +103,14 @@ textarea:focus-visible {
     section-caret 0.75s step-end 3;
 }
 
+.typing-text--immediate {
+  animation:
+    section-typing var(--typing-duration) steps(var(--typing-steps), end) forwards,
+    section-caret 0.75s step-end 3;
+}
+
 @keyframes section-typing {
-  to { width: var(--typing-width); }
+  to { clip-path: inset(0 0 0 0); }
 }
 
 @keyframes section-caret {
@@ -127,6 +132,7 @@ textarea:focus-visible {
     width: auto;
     overflow: visible;
     border-right: 0;
+    clip-path: none;
     animation: none !important;
   }
 }

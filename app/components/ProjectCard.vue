@@ -34,7 +34,21 @@ defineProps<{
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 2px;
-  transition: border-color var(--transition-base), background var(--transition-base);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow),
+    border-color var(--transition-base),
+    background var(--transition-base);
+}
+
+.project-card.reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.98);
+}
+
+.project-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .project-card__link {
@@ -114,5 +128,14 @@ defineProps<{
   border: 1px solid var(--color-border);
   border-radius: 2px;
   padding: 0.2em 0.5em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card.reveal,
+  .project-card.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 </style>
