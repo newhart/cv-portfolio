@@ -89,6 +89,29 @@ textarea:focus-visible {
   transform: translateY(0);
 }
 
+.typing-text {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  border-right: 1px solid currentColor;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.reveal.is-visible .typing-text {
+  animation:
+    section-typing var(--typing-duration) steps(var(--typing-steps), end) forwards,
+    section-caret 0.75s step-end 3;
+}
+
+@keyframes section-typing {
+  to { width: var(--typing-width); }
+}
+
+@keyframes section-caret {
+  50% { border-color: transparent; }
+}
+
 .reveal-stagger > * {
   transition-delay: calc(var(--reveal-index, 0) * 90ms);
 }
@@ -98,6 +121,13 @@ textarea:focus-visible {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .typing-text {
+    width: auto;
+    overflow: visible;
+    border-right: 0;
+    animation: none !important;
   }
 }
 

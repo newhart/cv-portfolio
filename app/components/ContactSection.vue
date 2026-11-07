@@ -7,7 +7,9 @@ const { messages } = useLanguage();
   <section id="contacts" class="contact section">
     <div class="container contact__inner">
       <div v-reveal>
-        <p class="section-eyebrow">{{ messages.homeContact.eyebrow }}</p>
+        <p class="section-eyebrow" :aria-label="messages.homeContact.eyebrow" v-reveal>
+          <TypingText :text="messages.homeContact.eyebrow" />
+        </p>
         <h2 class="section-title">{{ messages.homeContact.title }}</h2>
         <p class="contact__text">{{ messages.homeContact.intro }}</p>
       </div>

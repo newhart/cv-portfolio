@@ -20,6 +20,7 @@ export const translations = {
       summary:
         "Je conçois des applications web et mobiles avec Laravel, Vue.js, React et Node.js, de l’API à la mise en production.",
       projectsLink: "Voir mes projets",
+      downloadCv: "Télécharger mon CV",
       status: "En poste chez BIGDEV depuis octobre 2022",
       imageAlt: "Illustration décorative du profil",
     },
@@ -158,6 +159,7 @@ export const translations = {
       summary:
         "I build web and mobile applications with Laravel, Vue.js, React, and Node.js, from API design through production deployment.",
       projectsLink: "View my projects",
+      downloadCv: "Download my CV",
       status: "At BIGDEV since October 2022",
       imageAlt: "Decorative profile illustration",
     },

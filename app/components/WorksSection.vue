@@ -14,7 +14,9 @@ const { messages } = useLanguage();
 <template>
   <section id="works" class="works section">
     <div class="container">
-      <p class="section-eyebrow" v-reveal>{{ messages.works.eyebrow }}</p>
+      <p class="section-eyebrow" :aria-label="messages.works.eyebrow" v-reveal>
+        <TypingText :text="messages.works.eyebrow" />
+      </p>
       <h2 class="section-title" v-reveal>{{ messages.works.title }}</h2>
 
       <div class="works__grid">

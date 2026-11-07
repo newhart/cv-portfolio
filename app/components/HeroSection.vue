@@ -7,7 +7,9 @@ const { messages } = useLanguage();
   <section id="home" class="hero section">
     <div class="container hero__inner">
       <div class="hero__content" v-reveal>
-        <p class="section-eyebrow">{{ messages.hero.eyebrow }}</p>
+        <p class="section-eyebrow hero__eyebrow" :aria-label="messages.hero.eyebrow" v-reveal>
+          <TypingText :text="messages.hero.eyebrow" />
+        </p>
         <h1 class="hero__title">
           {{ messages.hero.lead }} {{ portfolio.displayName }}
           <span class="hero__title-accent">{{ messages.hero.role }}</span>.
@@ -16,6 +18,16 @@ const { messages } = useLanguage();
 
         <div class="hero__actions">
           <a class="btn btn--primary" href="/projects">{{ messages.hero.projectsLink }}</a>
+          <a
+            class="btn btn--secondary"
+            href="/download/CV-Haritiana-Randriamampionona.pdf"
+            download
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v4h14v-4" />
+            </svg>
+            {{ messages.hero.downloadCv }}
+          </a>
         </div>
       </div>
 
@@ -102,12 +114,38 @@ const { messages } = useLanguage();
   background: color-mix(in srgb, var(--color-primary) 10%, transparent);
 }
 
+.btn--secondary {
+  gap: 0.45rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.btn--secondary svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
 .hero__visual {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.hero__visual.is-visible .hero__photo {
+  animation: hero-float 6s ease-in-out 1.2s infinite;
 }
 
 .hero__photo {
@@ -167,11 +205,32 @@ const { messages } = useLanguage();
   white-space: nowrap;
 }
 
+.hero__visual.is-visible .hero__status span {
+  animation: hero-status-pulse 2.4s ease-in-out infinite;
+}
+
 .hero__status span {
   flex: 0 0 10px;
   width: 10px;
   height: 10px;
   background: var(--color-primary);
+  animation: hero-status-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes hero-status-pulse {
+  50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__photo,
+  .hero__status span {
+    animation: none;
+  }
 }
 
 @media (max-width: 860px) {
